@@ -1,9 +1,9 @@
 resource "google_cloudfunctions2_function" "this" {
-  name     = "minha-funcao"
+  name     = "my-function"
   location = "us-central1"
 
   build_config {
-    runtime     = "nodejs18"
+    runtime     = "python39"
     entry_point = "handler"
   }
 
