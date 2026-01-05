@@ -1,0 +1,64 @@
+############################################
+# Terraform
+############################################
+
+# Diretório de estado e plugins
+.terraform/
+**/.terraform/*
+
+# State files
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Plano gerado
+*.tfplan
+
+# Arquivos de lock locais (opcional ignorar)
+.terraform.lock.hcl
+
+############################################
+# Variáveis sensíveis
+############################################
+
+# Variáveis locais
+*.tfvars
+*.tfvars.json
+
+# Overrides (quase nunca versionar)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+############################################
+# Credenciais e ambientes
+############################################
+
+# AWS
+.aws/
+.env
+.env.*
+
+# GCP
+*.json
+!*.example.json
+
+############################################
+# Ferramentas / IDE
+############################################
+
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+############################################
+# Logs
+############################################
+
+*.log
