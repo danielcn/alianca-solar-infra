@@ -1,24 +1,20 @@
 resource "google_cloud_run_service" "this" {
-  name     = "alianca"
-  location = "us-central1"
-  project  = "alianca-solar"
+  name     = var.service_name
+  location = var.location
+  project  = var.project_id
 
   template {
     spec {
       containers {
-        image = "us-central1-docker.pkg.dev/alianca-solar/cloud-run-source-deploy/alianca@sha256:7ea696b312747133d64aeba7f1b77d677a698569475e92473a2fb7e7e4f0a0c2"
+        image = var.image
 
         ports {
-          container_port = 8080
+          container_port = var.container_port
           name           = "http1"
-          protocol       = null
         }
 
         resources {
-          limits = {
-            "cpu"    = "1000m"
-            "memory" = "512Mi"
-          }
+          limits = var.resources
         }
 
         startup_probe {
@@ -28,7 +24,7 @@ resource "google_cloud_run_service" "this" {
           timeout_seconds       = 240
 
           tcp_socket {
-              port = 8080
+            port = var.container_port
           }
         }
       }
